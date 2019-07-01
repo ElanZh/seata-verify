@@ -9,9 +9,9 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>elan.verify.seata</groupId>
-  <artifactId>seata-verify-user</artifactId>
+  <artifactId>seata-verify-storage</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>seata-verify-user</name>
+  <name>seata-verify-storage</name>
   <description>Demo project for Spring Boot</description>
 
   <properties>
@@ -20,6 +20,10 @@
   </properties>
 
   <dependencies>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>

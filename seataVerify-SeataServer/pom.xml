@@ -9,9 +9,9 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>elan.verify.seata</groupId>
-  <artifactId>seata-verify-user</artifactId>
+  <artifactId>seata-verify-seataServer</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>seata-verify-user</name>
+  <name>seata-verify-seataServer</name>
   <description>Demo project for Spring Boot</description>
 
   <properties>

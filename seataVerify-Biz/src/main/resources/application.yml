@@ -1,0 +1,5 @@
+server:
+  port: 8883
+spring:
+  application:
+    name: seataVerify-biz

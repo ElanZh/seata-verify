@@ -1,5 +1,5 @@
 server:
-  port: 8880
+  port: 8888
 spring:
   application:
-    name: seataVerify-user
+    name: seataVerify-seataServer

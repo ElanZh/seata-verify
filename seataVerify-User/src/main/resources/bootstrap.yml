@@ -1,0 +1,15 @@
+---
+spring:
+  cloud:
+    consul:
+      host: 1haoji
+      config:
+        format: YAML
+        default-context: seataVerify
+        profile-separator: '-'
+        prefix: seataVerify
+      discovery:
+        instance-id: ${spring.application.name}:${spring.application.instance_id:${spring.profiles:dev}}:${server.port:}
+        prefer-ip-address: true
+        health-check-critical-timeout: 60s
+        health-check-path:

@@ -37,5 +37,7 @@ apollo-cache
 # H2本地库文件
 testDB**
 
+**/H2_DB
+
 logs/
 *.log

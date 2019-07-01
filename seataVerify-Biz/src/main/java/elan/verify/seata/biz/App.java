@@ -1,4 +1,4 @@
-package elan.verify.seata.user;
+package elan.verify.seata.biz;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -12,4 +12,3 @@ spring:
         instance-id: ${spring.application.name}:${spring.application.instance_id:${spring.profiles:dev}}:${server.port:}
         prefer-ip-address: true
         health-check-critical-timeout: 60s
-        health-check-path:

@@ -13,7 +13,7 @@ public class App {
 
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
-        LOG.info("user-启动成功");
+        LOG.info("seataServer-启动成功");
     }
 
 }

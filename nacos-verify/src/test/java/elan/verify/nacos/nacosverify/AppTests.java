@@ -1,4 +1,4 @@
-package elan.verify.seata.seataverifyuser;
+package elan.verify.nacos.nacosverify;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

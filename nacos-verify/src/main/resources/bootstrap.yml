@@ -1,0 +1,17 @@
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: nacos-verify
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 1haoji:8848
+      config:
+        server-addr: 1haoji:8848
+        file-extension: yaml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

@@ -1,19 +1,20 @@
 package elan.verify.seata.user;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 
 @SpringBootApplication
 @EnableDiscoveryClient
+@RefreshScope
+@Slf4j
 public class App {
-    private final static Logger LOG = LoggerFactory.getLogger(App.class);
 
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
-        LOG.info("user-启动成功");
+        log.info("user-启动成功");
     }
 
 }

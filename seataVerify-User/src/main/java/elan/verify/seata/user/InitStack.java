@@ -1,15 +1,23 @@
 package elan.verify.seata.user;
 
+import com.zaxxer.hikari.HikariDataSource;
 import elan.verify.seata.user.biz.User;
 import elan.verify.seata.user.biz.UserRepo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
 @Component
+@Slf4j
+@Configuration
 public class InitStack implements ApplicationRunner {
+    @Autowired
+    private HikariDataSource dataSource;
+
     private final UserRepo userRepo;
 
     @Autowired
@@ -19,6 +27,8 @@ public class InitStack implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        log.warn("开始执行初始化任务！");
+        log.warn(dataSource.getJdbcUrl());
         // 初始化设置用户余额200
         User u;
         if (userRepo.count() == 0) {
@@ -29,6 +39,7 @@ public class InitStack implements ApplicationRunner {
             u.setBalance(200);
         }
         userRepo.save(u);
+        log.warn("初始化任务执行完毕！");
 
     }
 }

@@ -1,3 +1,4 @@
+!seataVerify-SeataServer/lib
 *.class
 .DS_Store
 application.pid

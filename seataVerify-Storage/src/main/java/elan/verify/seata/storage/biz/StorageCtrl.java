@@ -1,6 +1,7 @@
 package elan.verify.seata.storage.biz;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +22,7 @@ public class StorageCtrl {
     }
 
     @GetMapping("subtractStorage")
+    @Transactional(rollbackFor = Exception.class)
     public boolean subtractStorage(int storageId, int value){
         return storageRepo.updateForSubtract(storageId, value) == 1;
     }

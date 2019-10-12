@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @date 2019年-07月-02号 上午10:14
  * @Description :  TODO
  */
-@FeignClient(value = "seataVerify-user")
+@FeignClient(value = "seata-verify-user")
 public interface UserFeign {
 
     /**

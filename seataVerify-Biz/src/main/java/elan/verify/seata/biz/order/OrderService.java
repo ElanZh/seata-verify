@@ -22,7 +22,7 @@ public class OrderService {
         this.storageFeign = storageFeign;
     }
 
-    @GlobalTransactional(timeoutMills = 30000,name = "seataVerify-seataServer")
+    @GlobalTransactional
     boolean createOrder(int userId) {
         LOG.info("business Service Begin ... xid: " + RootContext.getXID());
         // 减扣库存

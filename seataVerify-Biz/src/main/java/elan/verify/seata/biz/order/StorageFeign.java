@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @date 2019年-07月-02号 下午1:26
  * @Description :  TODO
  */
-@FeignClient(value = "seataVerify-storage")
+@FeignClient(value = "seata-verify-storage")
 public interface StorageFeign {
     @RequestMapping(method = RequestMethod.GET, value = "storage/subtractStorage")
     boolean subtractStorage(@RequestParam("storageId") int storageId,@RequestParam("value") int value);

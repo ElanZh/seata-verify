@@ -28,10 +28,10 @@ public class InitStack implements ApplicationRunner {
         Storage s;
         if (storageRepo.count()==0){
             s = new Storage();
-            s.setStock(1);
+            s.setStock(100);
         } else {
             s = storageRepo.findAll(PageRequest.of(0, 1)).getContent().get(0);
-            s.setStock(1);
+            s.setStock(100);
         }
         storageRepo.save(s);
     }

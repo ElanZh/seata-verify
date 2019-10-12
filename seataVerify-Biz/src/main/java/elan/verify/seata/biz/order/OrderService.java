@@ -1,7 +1,9 @@
 package elan.verify.seata.biz.order;
 
-import elan.verify.seata.biz.OrderFeign;
-import elan.verify.seata.biz.StorageFeign;
+import io.seata.core.context.RootContext;
+import io.seata.spring.annotation.GlobalTransactional;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class OrderService {
+    private final static Logger LOG = LoggerFactory.getLogger(OrderService.class);
     private final OrderFeign orderFeign;
     private final StorageFeign storageFeign;
 
@@ -19,7 +22,9 @@ public class OrderService {
         this.storageFeign = storageFeign;
     }
 
+    @GlobalTransactional(timeoutMills = 30000,name = "seataVerify-seataServer")
     boolean createOrder(int userId) {
+        LOG.info("business Service Begin ... xid: " + RootContext.getXID());
         // 减扣库存
         if (!storageFeign.subtractStorage(1,1)) {
             throw new RuntimeException("减扣库存失败，下单失败");

@@ -2,4 +2,4 @@ server:
   port: 8881
 spring:
   application:
-    name: seataVerify-storage
+    name: seata-verify-storage

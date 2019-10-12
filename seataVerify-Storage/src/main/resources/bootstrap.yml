@@ -1,13 +1,13 @@
+---
 spring:
   cloud:
-    consul:
-      host: 1haoji
-      config:
-        format: YAML
-        default-context: seataVerify
-        profile-separator: '-'
-        prefix: seataVerify
+    nacos:
       discovery:
-        instance-id: ${spring.application.name}:${spring.application.instance_id:${spring.profiles:dev}}:${server.port:}
-        prefer-ip-address: true
-        health-check-critical-timeout: 60s
+        server-addr: 1haoji:8848
+      config:
+        server-addr: 1haoji:8848
+        file-extension: yaml
+        ext-config:
+          - {group: seata-verify , data-id: seata-verify.yaml}
+          - {group: seata-verify , data-id: seata-verify-storage.yaml}
+        group: seata-verify

@@ -2,4 +2,4 @@ server:
   port: 8882
 spring:
   application:
-    name: seataVerify-order
+    name: seata-verify-order

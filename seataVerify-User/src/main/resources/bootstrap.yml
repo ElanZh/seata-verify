@@ -1,13 +1,4 @@
 ---
-server:
-  port: 8880
-spring:
-  application:
-    name: seata-verify-user
-  main:
-    allow-bean-definition-overriding: true
-
----
 spring:
   cloud:
     nacos:

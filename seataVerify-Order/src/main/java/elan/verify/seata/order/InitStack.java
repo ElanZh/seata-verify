@@ -6,6 +6,8 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
+
 /**
  * @author 张一然
  * @date 2019年-07月-02号 上午10:02
@@ -21,6 +23,7 @@ public class InitStack implements ApplicationRunner {
     }
 
     @Override
+    @Transactional
     public void run(ApplicationArguments args) throws Exception {
         // 启动删除所有订单
         orderRepo.deleteAllByIdIsNotNull();

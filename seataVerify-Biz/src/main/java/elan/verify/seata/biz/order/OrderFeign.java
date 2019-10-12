@@ -1,4 +1,4 @@
-package elan.verify.seata.biz;
+package elan.verify.seata.biz.order;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;

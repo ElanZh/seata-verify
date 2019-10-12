@@ -21,7 +21,7 @@ hystrix:
     isolation:
     thread:
     # 断路器的超时时间需要大于ribbon的超时时间，不然不会触发重试。
-    timeoutInMilliseconds: 8000
+    timeoutInMilliseconds: 30000
 
 ###开启Hystrix断路器
 feign:
@@ -51,13 +51,7 @@ spring:
 logging:
   level:
     root: info
-    org:
-      springframework:
-        web: error
-      hibernate:
-        SQL: debug
-        type:
-          descriptor:
-            sql:
-              BasicBinder: trace
-              BasicExtractor: trace
+    org.springframework.web: error
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.hibernate.type.descriptor.sql.BasicExtractor: trace

@@ -1,6 +1,6 @@
 spring:
   datasource:
     # 数据存放在 当前目录/H2_DB/xxxx
-    url: jdbc:h2:./H2_DB/storage;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:mysql://2haoji:3306/seata_verify_storage
     username: root
     password: admin

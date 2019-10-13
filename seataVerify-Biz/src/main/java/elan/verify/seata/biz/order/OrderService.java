@@ -5,6 +5,7 @@ import io.seata.spring.annotation.GlobalTransactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author 张一然
@@ -22,7 +23,8 @@ public class OrderService {
         this.storageFeign = storageFeign;
     }
 
-    @GlobalTransactional
+    @Transactional
+    @GlobalTransactional(timeoutMills = 300000)
     boolean createOrder(int userId) {
         LOG.info("business Service Begin ... xid: " + RootContext.getXID());
         // 减扣库存

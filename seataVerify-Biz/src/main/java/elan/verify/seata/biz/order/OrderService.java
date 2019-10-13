@@ -23,7 +23,6 @@ public class OrderService {
         this.storageFeign = storageFeign;
     }
 
-    @Transactional
     @GlobalTransactional(timeoutMills = 300000)
     boolean createOrder(int userId) {
         LOG.info("business Service Begin ... xid: " + RootContext.getXID());

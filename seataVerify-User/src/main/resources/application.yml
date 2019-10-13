@@ -3,5 +3,3 @@ server:
 spring:
   application:
     name: seata-verify-user
-  main:
-    allow-bean-definition-overriding: true

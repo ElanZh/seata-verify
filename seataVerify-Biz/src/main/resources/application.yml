@@ -3,8 +3,3 @@ server:
 spring:
   application:
     name: seata-verify-biz
-
-  cloud:
-    alibaba:
-      seata:
-        tx-service-group:: seata-verify-biz-fescar-service-group

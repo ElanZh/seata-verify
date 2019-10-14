@@ -1,8 +1,9 @@
 package elan.verify.seata.user.config;
 
-import com.alibaba.druid.pool.DruidDataSource;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import io.seata.rm.datasource.DataSourceProxy;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -17,23 +18,32 @@ import javax.sql.DataSource;
  */
 @Configuration
 public class DataSourceConfig {
+    /**
+     * 数据源属性配置
+     * {@link DataSourceProperties}
+     */
+    private DataSourceProperties dataSourceProperties;
 
-    @Bean
-    @ConfigurationProperties(prefix = "spring.datasource")
-    public DruidDataSource druidDataSource() {
-        return new DruidDataSource();
+    public DataSourceConfig(DataSourceProperties dataSourceProperties) {
+        this.dataSourceProperties = dataSourceProperties;
     }
 
     /**
-     * 需要将 DataSourceProxy 设置为主数据源，否则事务无法回滚
+     * 配置数据源代理，用于事务回滚
      *
-     * @param druidDataSource The DruidDataSource
      * @return The default datasource
+     * @see DataSourceProxy
      */
     @Primary
     @Bean("dataSource")
-    public DataSource dataSource(DruidDataSource druidDataSource) {
-        return new DataSourceProxy(druidDataSource);
+    public DataSource dataSource() {
+        HikariConfig hikariConfig = new HikariConfig();
+        hikariConfig.setJdbcUrl(dataSourceProperties.getUrl());
+        hikariConfig.setUsername(dataSourceProperties.getUsername());
+        hikariConfig.setPassword(dataSourceProperties.getPassword());
+        HikariDataSource dataSource = new HikariDataSource(hikariConfig);
+//        dataSource.setDriverClassName(dataSourceProperties.getDriverClassName());
+        return new DataSourceProxy(dataSource);
     }
 }
 

@@ -1,14 +1,16 @@
 package elan.verify.seata.user;
 
+import elan.verify.seata.user.config.DataSourceConfig;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.context.annotation.Import;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@RefreshScope
+@Import(DataSourceConfig.class)
 @Slf4j
 public class App {
 

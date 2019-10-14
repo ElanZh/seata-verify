@@ -1,7 +1,5 @@
 package elan.verify.seata.user;
 
-import com.alibaba.druid.pool.DruidDataSource;
-import com.zaxxer.hikari.HikariDataSource;
 import elan.verify.seata.user.biz.User;
 import elan.verify.seata.user.biz.UserRepo;
 import lombok.extern.slf4j.Slf4j;
@@ -12,12 +10,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
 
+import javax.sql.DataSource;
+
 @Component
 @Slf4j
 @Configuration
 public class InitStack implements ApplicationRunner {
     @Autowired
-    private DruidDataSource dataSource;
+    private DataSource dataSource;
 
     private final UserRepo userRepo;
 
@@ -29,7 +29,6 @@ public class InitStack implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         log.warn("开始执行初始化任务！");
-        log.warn(dataSource.getUrl());
         // 初始化设置用户余额200
         User u;
         if (userRepo.count() == 0) {

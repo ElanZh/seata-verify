@@ -1,6 +1,0 @@
-spring:
-  datasource:
-    # 数据存放在 当前目录/H2_DB/xxxx
-    url: jdbc:mysql://2haoji:3306/seata_verify_user
-    username: root
-    password: admin

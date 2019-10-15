@@ -24,7 +24,9 @@ public class OrderService {
 
     @GlobalTransactional(timeoutMills = 300000)
     boolean createOrder(int userId) {
-        LOG.info("business Service Begin ... xid: " + RootContext.getXID());
+        String xid = RootContext.getXID();
+        boolean inGlobalTransaction = RootContext.inGlobalTransaction();
+        LOG.info("是否在全局事务中"+ inGlobalTransaction+ "，全局事务ID="+xid);
         // 减扣库存
         if (!storageFeign.subtractStorage(1,1)) {
             throw new RuntimeException("减扣库存失败，下单失败");

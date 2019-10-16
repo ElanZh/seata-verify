@@ -23,7 +23,7 @@ public class OrderService {
     }
 
     @GlobalTransactional(timeoutMills = 300000)
-    boolean createOrder(int userId) {
+    public boolean createOrder(int userId) {
         String xid = RootContext.getXID();
         boolean inGlobalTransaction = RootContext.inGlobalTransaction();
         LOG.info("是否在全局事务中"+ inGlobalTransaction+ "，全局事务ID="+xid);

@@ -1,9 +1,6 @@
 package elan.verify.seata.order.biz;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * @author 张一然
@@ -17,7 +14,7 @@ import javax.persistence.Table;
 @lombok.NoArgsConstructor
 public class Order {
     @Id
-    @GeneratedValue(generator = "SQ_ORDER")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private Integer userId;

@@ -1,0 +1,23 @@
+@startuml
+node Biz
+node Storage
+node Order
+node User
+database StorageDB[
+DB
+]
+database OrderDB[
+DB
+]
+database UserDB[
+DB
+]
+
+Biz --> Storage :远程调用
+Biz --> Order :远程调用
+Order --> User :远程调用
+
+Storage <-> StorageDB
+Order <-> OrderDB
+User <-> UserDB
+@enduml

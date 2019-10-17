@@ -1,0 +1,74 @@
+@startuml
+cloud nacos[
+Nacos
+]
+
+node Biz[
+业务
+--
+Biz
+]
+
+node Storage[
+库存中心
+--
+storage
+]
+
+database storage[
+数据库
+--
+storage
+]
+
+node Order[
+订单中心
+--
+order
+]
+
+database order[
+数据库
+--
+order
+]
+
+node User[
+用户中心
+--
+user
+]
+
+database user[
+数据库
+--
+user
+]
+
+component seataServer[
+事务协调器
+--
+seata-server
+]
+
+database seataServerDb[
+事务数据库
+]
+
+nacos -0- Biz
+nacos -0- Storage
+nacos -0- Order
+nacos -0- User
+nacos -0- seataServer
+
+Storage <--> storage
+Order <--> order
+User <--> user
+seataServer <--> seataServerDb
+
+'seataServer -(0)- Biz
+'seataServer -(0)- Storage
+'seataServer -(0)- Order
+'seataServer -(0)- User
+
+@enduml
